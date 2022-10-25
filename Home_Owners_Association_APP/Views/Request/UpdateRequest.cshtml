@@ -1,0 +1,16 @@
+﻿@model Request
+
+<h2>Update @Model.RequestDESC</h2>
+
+@using (Html.BeginForm("UpdateRequestToDatabase", "Request", "Post"))
+{
+    <input asp-for="RequestID" type="hidden" value="@Model.RequestID" />
+
+    <label asp-for="RequestDESC" class="control-label">RequestDESC</label>
+    <input type="text" name="RequestDESC" class="form-control" value="@Model.RequestDESC" />
+
+    <label asp-for="RequestSTATUS" class="control-label">RequestStatus</label>
+    <input type="text" step="0.01" name="Price" class="form-control" value="@Model.RequestSTATUS" />
+
+    <input type="submit" value="Update Request" class="btn btn-primary" />
+}

@@ -12,6 +12,23 @@
     <tr>
         <td>@Model.RequestID</td>
         <td>@Model.RequestDESC</td>
-        <td>@Model.RequestStatus</td>
+        <td>@Model.RequestSTATUS</td>
     </tr>
+
+
 </table>
+
+
+
+<div style="display: block">
+    <a href="/Request/UpdateRequest/@Model.RequestID">Update this maintenance request</a>
+</div>
+
+<div style="display: block">
+
+    @using (Html.BeginForm("DeleteRequest", "Request", "Post"))
+    {
+        <input type="hidden" asp-for="RequestID" value="@Model.RequestID" />
+        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this request" />
+    }
+</div

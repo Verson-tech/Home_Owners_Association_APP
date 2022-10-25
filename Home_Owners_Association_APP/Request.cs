@@ -12,7 +12,7 @@
         public string? RequestDESC { get; set; } 
 
         //CS8618 - Non-nullable variable must contain a non-null value when exiting constructor. Consider declaring it as nullable.
-        public string? RequestStatus { get; set; }
+        public string? RequestSTATUS { get; set; }
 
         //public class  
        
