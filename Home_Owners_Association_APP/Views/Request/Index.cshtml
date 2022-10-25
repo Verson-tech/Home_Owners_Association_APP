@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Request>
+
+<h2>Requests</h2>
+<table class="table">
+    <tr>
+        <th>RequestID</th>
+        <th>RequestDESC</th>
+        <th>RequestSTATUS</th>
+    </tr>
+
+    @foreach (var i in @Model)
+    {
+        <tr>
+            <td>@i.RequestID</td>
+            <td>@i.RequestDESC</td>
+            <td>@i.RequestStatus</td>
+        </tr>
+    }
+
+</table>
