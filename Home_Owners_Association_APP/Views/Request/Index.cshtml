@@ -11,8 +11,10 @@
     @foreach (var i in @Model)
     {
         <tr>
-            <td>@i.RequestID</td>
-            <td>@i.RequestDESC</td>
+            @*<td>@i.RequestID</td>*@
+            <td><a href=/Request/ViewRequest/@i.RequestID>@i.RequestID</a></td>
+            @*<td>@i.RequestDESC</td>*@
+            <td><a href=/Request/ViewRequest/@i.RequestID>@i.RequestDESC</a></td>
             <td>@i.RequestStatus</td>
         </tr>
     }

@@ -4,18 +4,37 @@
 }
 
 
-@*@using (Html.BeginForm("Form2", "Home", FormMethod.Post))
-
-    ViewData["Title"] = "Home Page";
-*@
-
-
-
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <div>
-        <img style="width: 900px; border-radius: 50% 20% / 10% 40%;" src="https://images.unsplash.com/photo-1508885368104-a4871600f1e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80" class="img-fluid" alt="...">
+    @*1*@
+    <h1 class="display-4">Welcome to your HOA App</h1>
+
+    @*2*@
+    <p>Learn about <a href="https://www.hopb.co/florida-hoa-law-guide" target="_blank">Florida Homeowners’ Guide to HOA Laws</a>.</p>
+
+    @*3*@
+    <div class ="row justify-content-md-center">
+        <form class="col col-lg-3">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">Login & Sign Up WIP</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+           @* <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>*@
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+
+    @*4*@
+    <div class="p-1">
+        <img style="width: 600px; border-radius: 50% 20% / 10% 40%;" src="https://images.unsplash.com/photo-1508885368104-a4871600f1e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80" class="img-fluid" alt="...">
     </div>
 
 

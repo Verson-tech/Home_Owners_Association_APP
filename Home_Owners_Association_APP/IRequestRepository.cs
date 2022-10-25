@@ -3,5 +3,6 @@
     public interface IRequestRepository
     {
         public IEnumerable<Request> GetAllRequests();
+        public Request GetRequest(int id);
     }
 }
