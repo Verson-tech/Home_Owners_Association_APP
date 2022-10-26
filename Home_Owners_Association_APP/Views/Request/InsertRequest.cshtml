@@ -1,0 +1,26 @@
+﻿@model Request
+
+<h2>Create a New Request</h2>
+
+@using (Html.BeginForm("InsertRequestToDatabase", "Request", "Post"))
+{
+    <input asp-for="RequestID" type="hidden" value="" />
+
+    <label asp-for="RequestName" class="control-label">Request title</label>
+    <input type="text" name="RequestName" class="form-control" value="" />
+
+    <label asp-for="RequestDESC" class="control-label">Describe your request</label>
+    <input type="text" name="RequestDESC" class="form-control" />
+
+    <div class="form-group">
+        <label for="">Select a Category</label>
+        <select class="form-control" name="CategoryID" value="">
+            @foreach (var cat in Model.Categories)
+            {
+                <option value="@cat.CategoryID">@cat.CategoryID @cat.RequestName</option>
+            }
+        </select>
+    </div>
+
+    <input type="submit" value="Create Product" class="btn btn-primary" />
+}

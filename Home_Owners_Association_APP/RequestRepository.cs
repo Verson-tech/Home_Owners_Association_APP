@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Home_Owners_Association_APP.Models;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System.Data;
 
@@ -12,6 +13,14 @@ namespace Home_Owners_Association_APP
             _connection = conn;
         }
 
+        public Request AssignCategory()
+        {
+            var categoryList = GetCategories();
+            var request = new Request();
+            request.Categories = categoryList;
+            return request;
+        }
+
         public void DeleteRequest(Request request)
         {
             _connection.Execute("DELETE FROM MAINTENANCE WHERE RequestID = @id;", new { id = request.RequestID });
@@ -22,9 +31,20 @@ namespace Home_Owners_Association_APP
             return _connection.Query<Request>("SELECT * FROM MAINTENANCE;");
         }
 
+        public IEnumerable<Category> GetCategories()
+        {
+            return _connection.Query<Category>("SELECT * FROM categories;");
+        }
+
         public Request GetRequest(int id)
         {
             return _connection.QuerySingle<Request>("SELECT * FROM MAINTENANCE WHERE REQUESTID = @id", new {id = id});
+        }
+
+        public void InsertRequest(Request requestToInsert)
+        {
+            _connection.Execute("INSERT INTO maintenance (REQUESTNAME, REQUESTDESC, CATEGORYID) VALUES (@requestName, @requestDesc, @categoryID);",
+                new {requestName = requestToInsert.RequestName, requestDesc = requestToInsert.RequestDESC, categoryID = requestToInsert.CategoryID});
         }
 
         public void UpdateRequest(Request request)

@@ -45,5 +45,17 @@ namespace Home_Owners_Association_APP.Controllers
             repo.DeleteRequest(request);
             return RedirectToAction("Index");
         }
+
+        public IActionResult InsertRequest()
+        {
+            var req = repo.AssignCategory();
+            return View(req);
+        }
+
+        public IActionResult InsertRequestToDatabase(Request requestToInsert)
+        {
+            repo.InsertRequest(requestToInsert);
+            return RedirectToAction("Index");
+        }
     }
 }
