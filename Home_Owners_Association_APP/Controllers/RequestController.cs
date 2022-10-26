@@ -23,6 +23,7 @@ namespace Home_Owners_Association_APP.Controllers
             var request = repo.GetRequest(id);
             return View(request);
         }
+<<<<<<< HEAD
         public IActionResult UpdateRequest(int id)
         {
             Request prod = repo.GetRequest(id);
@@ -57,5 +58,30 @@ namespace Home_Owners_Association_APP.Controllers
             repo.InsertRequest(requestToInsert);
             return RedirectToAction("Index");
         }
+||||||| 3db95d3 (implemented DeleteRequest)
+        public IActionResult UpdateRequest(int id)
+        {
+            Request prod = repo.GetRequest(id);
+            if (prod == null)
+            {
+                return View("ProductNotFound");
+            }
+            return View(prod);
+        }
+
+        public IActionResult UpdateRequestToDatabase(Request request)
+        {
+            repo.UpdateRequest(request);
+
+            return RedirectToAction("ViewRequest", new { id = request.RequestID });
+        }
+
+        public IActionResult DeleteRequest(Request request)
+        {
+            repo.DeleteRequest(request);
+            return RedirectToAction("Index");
+        }
+=======
+>>>>>>> parent of 3db95d3 (implemented DeleteRequest)
     }
 }
